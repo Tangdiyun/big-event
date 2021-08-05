@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 服务器环境下 第一条斜线“/”表示根目录 这里是表示 big-EVENT文件夹  注释键 ctrl +k +c-->
+    <!-- 加载css跟js原则，先加载插件的css跟js文件 然后再加载自己的 css跟js 文件 这样自己可以修改一些样式 -->
+    <!-- 加载layui框架的css -->
+    <link rel="stylesheet" href="/assets/lib/layui/css/layui.css">
+    <!-- 加载自己的css -->
+    <link rel="stylesheet" href="/assets/css/login.css">
+    <!-- 加载layui的 all.js文件 -->
+    <script src="/assets/lib/layui/layui.all.js"></script>
+    <!-- 加载jquery -->
+    <script src="/assets/lib/jquery.js"></script>
+    <!-- 加载自己的js -->
+    <script src="/assets/js/login1.js"></script>
+    <!-- 加载源码 -->
+    <!-- <script src="/assets/js/login.js"></script> -->
+
+</head>
+
+<body>
+    <!-- log start -->
+    <div id="logo">
+        <img src="/assets/images/logo.png" alt="">
+    </div>
+    <!-- log end -->
+
+
+    <!-- 登录盒子开始 -->
+    <div id="login">
+        <div class="title"></div>
+        <!-- 引入layui的表单 -->
+        <form class="layui-form" action="">
+            <!-- 第一行用户名 表单元素 -->
+            <div class="layui-form-item">
+                <!-- 从layui里面寻找图标 layui-icon-username选一个对应的图标-->
+                <i class="layui-icon layui-icon-username"></i>
+                <input type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+
+            </div>
+            <!-- 第2行密码 表单元素 -->
+            <div class="layui-form-item">
+                <i class="layui-icon layui-icon-password"></i>
+                <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+
+            </div>
+            <!-- 第3行登录 表单元素 button 在基础说明里面找到 页面元素 公共类 添加适当的类 -->
+            <button class="layui-btn layui-btn-fluid layui-bg-blue" lay-submit lay-filter="formDemo">登录</button>
+            <!-- 第4行 去注册 ：超链接 -->
+            <div>
+                <a href="javascript:;" id="goto-reg">还没有账号，去注册</a>
+            </div>
+        </form>
+    </div>
+    <!-- 登录盒子结束 -->
+
+
+    <!-- 注册盒子开始 -->
+    <div id="register">
+        <div class="title"></div>
+        <!-- 引入layui的表单 -->
+        <form class="layui-form" action="">
+            <!-- 第一行用户名 表单元素 -->
+            <div class="layui-form-item">
+                <!-- 从layui里面寻找图标 layui-icon-username选一个对应的图标-->
+                <i class="layui-icon layui-icon-username"></i>
+                <input type="text" name="username" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+
+            </div>
+            <!-- 第2行密码 表单元素 -->
+            <div class="layui-form-item">
+                <i class="layui-icon layui-icon-password"></i>
+                <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+
+            </div>
+            <!-- 第3行 验证密码 表单元素 去掉name属性 不然序列化的时候多发送一行值 -->
+            <div class="layui-form-item">
+                <i class="layui-icon layui-icon-password"></i>
+                <input type="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+
+            </div>
+            <!-- 第4行登录 表单元素 button 在基础说明里面找到 页面元素 公共类 添加适当的类 -->
+            <button class="layui-btn layui-btn-fluid layui-bg-blue" lay-submit lay-filter="formDemo">注册</button>
+            <!-- 第5行 去注册 ：超链接 -->
+            <div>
+                <a href="javascript:;" id="goto-login">已经有账号，去登录</a>
+            </div>
+        </form>
+    </div>
+    <!-- 注册盒子结束 -->
+
+</body>
+
+</html>
