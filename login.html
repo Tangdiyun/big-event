@@ -39,12 +39,16 @@
             <div class="layui-form-item">
                 <!-- 从layui里面寻找图标 layui-icon-username选一个对应的图标-->
                 <i class="layui-icon layui-icon-username"></i>
-                <input type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+                <!-- lay-verify属性是layui框架里面中的内置模块form的一个表单验证属性 里面的值就是一个验证规则，多个验证规则连在一起用|分割 -->
+
+                <input type="text" name="username" required lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
 
             </div>
             <!-- 第2行密码 表单元素 -->
             <div class="layui-form-item">
                 <i class="layui-icon layui-icon-password"></i>
+                <!-- lay-verify属性是layui框架里面中的内置模块form的一个表单验证属性 里面的值就是一个验证规则，多个验证规则连在一起用|分割 -->
+                <!-- len是一个自定义的验证规则 -->
                 <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
 
             </div>
@@ -68,19 +72,23 @@
             <div class="layui-form-item">
                 <!-- 从layui里面寻找图标 layui-icon-username选一个对应的图标-->
                 <i class="layui-icon layui-icon-username"></i>
-                <input type="text" name="username" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+                <input type="text" name="username" required lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
 
             </div>
             <!-- 第2行密码 表单元素 -->
             <div class="layui-form-item">
                 <i class="layui-icon layui-icon-password"></i>
-                <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                <!-- lay-verify属性是layui框架里面中的内置模块form的一个表单验证属性 里面的值就是一个验证规则，多个验证规则连在一起用|分割 -->
+                <!-- len是一个自定义的验证规则 -->
+                <!-- 添加一个pass 在验证的时候获取元素 -->
+                <input type="password" name="password" required lay-verify="required|len" placeholder="请输入密码" autocomplete="off" class="layui-input pass">
 
             </div>
             <!-- 第3行 验证密码 表单元素 去掉name属性 不然序列化的时候多发送一行值 -->
+            <!-- same是一个自定义的验证规则 -->
             <div class="layui-form-item">
                 <i class="layui-icon layui-icon-password"></i>
-                <input type="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                <input type="password" required lay-verify="required|same" placeholder="请输入密码" autocomplete="off" class="layui-input ">
 
             </div>
             <!-- 第4行登录 表单元素 button 在基础说明里面找到 页面元素 公共类 添加适当的类 -->
