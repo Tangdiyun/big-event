@@ -4,9 +4,13 @@ body {
     height: 100%;
 }
 
+
+/* window下登录页面右侧出现滚动条 是因为元素塌陷问题 解决方法是 overflow ：hidden */
+
 body {
     background: url('/assets/images/login_bg.jpg') no-repeat;
     background-size: cover;
+    overflow: hidden;
 }
 
 
