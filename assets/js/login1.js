@@ -91,7 +91,7 @@ $(function() {
                     // localStorage.setItem(键, 值);
                     localStorage.setItem('token', res.token);
                     // 跳转连接
-                    // location.href = '/index.html';
+                    location.href = '/index.html';
                 }
             }
         })

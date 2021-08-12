@@ -1,0 +1,41 @@
+/* 调整字体图标 */
+
+.layui-icon {
+    font-size: 18px;
+    color: white;
+    position: relative;
+    top: 2px;
+    margin-right: 5px;
+}
+
+
+/* 给菜单子项缩进 */
+
+.layui-nav-child .layui-icon {
+    margin-left: 15px;
+}
+
+
+/* 修改侧边栏头像样式 */
+
+.userinfo {
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+
+
+/* 文字头像 */
+
+.text-avatar {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    background-color: #009688;
+    display: none;
+    /*这里先让它隐藏*/
+    margin-right: 5px;
+}
