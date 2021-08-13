@@ -39,3 +39,18 @@
     /*这里先让它隐藏*/
     margin-right: 5px;
 }
+
+
+/* 给中心内容区域设置宽高 */
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* 解决侧边滚动条问题 给父叽盒子添加overflow hidden */
+
+.layui-body {
+    overflow: hidden;
+}

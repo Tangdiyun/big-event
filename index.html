@@ -1,3 +1,11 @@
+<script>
+    // 进入页面立马判断有没有token，没有就跳转到login页面  
+    // 这只是判断有没有token 不能判断token真假，判断真假在发送登录请求后判断
+    if (localStorage.getItem('token') === null) {
+        location.href = '/login.html';
+    }
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,8 +44,8 @@
                         <dd><a href="">重置密码</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item" lay-header-event="menuRight" lay-unselect>
-                    <a href="javascript:;">
+                <li class="layui-nav-item" lay-unselect>
+                    <a href="javascript:;" id="logout">
                         <i class="layui-icon layui-icon-logout"></i>退出
                     </a>
                 </li>
@@ -59,7 +67,8 @@
                 <ul class="layui-nav layui-nav-tree" lay-filter="test" lay-shrink="all">
 
                     <li class="layui-nav-item layui-this ">
-                        <a href="javascript:;">
+                        <!-- fm 是标签iframe的name属性值 绑定后可以让超链接在frame标签的内部显示  -->
+                        <a href="/home/dashboard.html" target="fm">
                             <i class="layui-icon layui-icon-home"></i> 首页</a>
                     </li>
                     <li class="layui-nav-item ">
@@ -77,13 +86,14 @@
                             <i class="layui-icon layui-icon-username"></i> 个人中心</a>
                         <dl class="layui-nav-child">
                             <dd>
-                                <a href="javascript:;"> <i class="layui-icon layui-icon-username"></i>list 1</a>
+                                <!-- 超链接有一个target属性 可以让跳转的页面在指定区域显示 只要target绑定 其他盒子的name属性值 -->
+                                <a href="https://www.qq.com" target="fm"> <i class="layui-icon layui-icon-username"></i>腾讯</a>
                             </dd>
                             <dd>
-                                <a href="javascript:;"> <i class="layui-icon layui-icon-username"></i>list 2</a>
+                                <a href="https://www.sina.com.cn" target="fm"> <i class="layui-icon layui-icon-username"></i>新浪</a>
                             </dd>
                             <dd>
-                                <a href="javascript:;"> <i class="layui-icon layui-icon-username"></i>list 3</a>
+                                <a href="https://sale.vmall.com/pseries.html?cid=10618" target="fm"> <i class="layui-icon layui-icon-username"></i>华为</a>
                             </dd>
                         </dl>
                     </li>
@@ -94,7 +104,10 @@
 
         <div class="layui-body">
             <!-- 内容主体区域 -->
-            <div style="padding: 15px;">内容主体区域。记得修改 layui.css 和 js 的路径</div>
+            <!-- <div style="padding: 15px;">内容主体区域。记得修改 layui.css 和 js 的路径</div> -->
+            <!-- 引入标签iframe -->
+            <!-- 给标签添加name值 以便超链接的target绑定 让跳转的页面在这个区域内显示 -->
+            <iframe src="/home/dashboard.html" frameborder="0" name="fm"></iframe>
         </div>
 
         <div class="layui-footer">
