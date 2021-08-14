@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重置密码</title>
+    <link rel="stylesheet" href="/assets/lib/layui/css/layui.css">
+    <!-- 套用repwd的css样式 -->
+    <link rel="stylesheet" href="/assets/css/user/repwd1.css">
+
+    <script src="/assets/lib/jquery.js"></script>
+    <script src="/assets/lib/layui/layui.all.js"></script>
+    <script src="/assets/js/user/userinfo1.js"></script>
+</head>
+
+<body>
+    <div class="layui-card">
+        <div class="layui-card-header">修改用户信息</div>
+        <div class="layui-card-body">
+            <!-- 第一行登录账号  -->
+
+
+            <!-- 给表单添加属性 lay-filter 方便使用form模块里面方法回填数据 -->
+            <form class="layui-form" action="" lay-filter="abc">
+                <!-- 隐藏域 一般用来修改资料的时候给服务器发送主键 用的 服务器根据隐藏域发送的数据删除相关的数据-->
+                <input type="hidden" name="id">
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">登录账号</label>
+                    <div class="layui-input-block">
+                        <!-- 给登录账号表单添加 禁用disable 属性 或者 readonly只读属性 -->
+                        <input type="text" disabled name="username" required lay-verify="required" placeholder="请输入账号" autocomplete="off" class="layui-input ">
+                    </div>
+                    <!-- 第2行用户昵称 -->
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">用户昵称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="nickname" required lay-verify="required" placeholder="请输入昵称" autocomplete="off" class="layui-input">
+                    </div>
+                    <!-- 第3行用户邮箱 -->
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">用户邮箱</label>
+                    <div class="layui-input-block">
+                        <!-- 添加一个内置的邮箱验证规则 -->
+                        <input type="text" name="email" required lay-verify="required|email" placeholder="请输入邮箱" autocomplete="off" class="layui-input ">
+                    </div>
+                    <!-- 第4行按钮 -->
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="formDemo">确认修改</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</body>
+
+</html>
