@@ -1,0 +1,11 @@
+body {
+    background-color: gainsboro;
+}
+
+.layui-card {
+    margin: 0 20px;
+}
+
+form {
+    width: 500px;
+}
