@@ -40,9 +40,9 @@ function getUserInfo() {
 
 
                 //2 设置头像（有图片用图片做头像，没有图片用用户名第一个字母大写做头像）
-                if (res.user_pic) {
+                if (res.data.user_pic) {
                     // 使用图片显示
-                    $(".layui-nav-img").attr('src', 'res.data.user_pic').show();
+                    $(".layui-nav-img").attr('src', res.data.user_pic).show();
                     // 文字头像隐藏
                     $('.text-avatar').hide();
                 } else {
@@ -61,7 +61,7 @@ function getUserInfo() {
         // 请求发送完成后
         complete: function(xhr) {
             // 形参是异步对象
-            console.log(xhr);
+
             if (xhr.responseJSON.status == 1 && res.responseJSON.massage == '身份认证失败！') {
                 // 说明token没有 或者是假的
                 // 删除本地token
