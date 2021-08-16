@@ -7,7 +7,7 @@ function renderUser() {
     // 发送请求获取用户信息 回填页面数据
     $.ajax({
         type: 'get',
-        url: 'http://www.liulongbin.top:3007/my/userinfo',
+        url: '/my/userinfo',
         success: function(res) {
             console.log(res);
             if (res.status === 0) {
@@ -19,18 +19,6 @@ function renderUser() {
                 form.val('abc', res.data);
             }
 
-        },
-        headers: {
-            'Authorization': localStorage.getItem('token')
-        },
-        complete: function(xhr) {
-            console.log(xhr);
-            // 如果token过期或者失败了跳转页面
-            if (xhr.responseJSON.status === 1 && xhr.responseJSON.message === '身份认证失败！') {
-                localStorage.removeItem('token');
-                // window表示当前窗口
-                window.parent.location.href = '/login.html';
-            }
         }
     })
 }
@@ -47,7 +35,7 @@ $(function() {
         // 发送请求
         $.ajax({
             type: 'post',
-            url: 'http://www.liulongbin.top:3007/my/userinfo',
+            url: '/my/userinfo',
             // 表单数据  serialize方法 收集不到 被禁用的表单val值
             data: $(this).serialize(),
 
@@ -60,20 +48,7 @@ $(function() {
                     window.parent.getUserInfo();
                 }
 
-            },
-            headers: {
-                'Authorization': localStorage.getItem('token')
-            },
-            complete: function(xhr) {
-                console.log(xhr);
-                // 如果token过期或者失败了跳转页面
-                if (xhr.responseJSON.status === 1 && xhr.responseJSON.message === '身份认证失败！') {
-                    localStorage.removeItem('token');
-                    // window表示当前窗口
-                    window.parent.location.href = '/login.html';
-                }
             }
-
         })
     });
 

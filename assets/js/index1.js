@@ -22,11 +22,13 @@ $(function() {
 function getUserInfo() {
     $.ajax({
         type: 'get',
-        url: 'http://www.liulongbin.top:3007/my/userinfo',
+        //   http://www.liulongbin.top:3007  这个共同的内容已经在 ajaxprefilter 里面添加 所以ajax不用再添加
+        url: '/my/userinfo',
         // 访问my文件需要token令牌 要设置请求头 ajax 里面有一个属性headers 用来设置请求头 根据文档需求设置请求头
-        headers: {
-            'Authorization': localStorage.getItem('token')
-        },
+        //这个共同的内容以及在 ajaxprefilter 里面添加 所以ajax不用再添加
+        // headers: {
+        //     'Authorization': localStorage.getItem('token')
+        // },
         success: function(res) {
             console.log(res);
             if (res.status === 0) {
@@ -58,18 +60,19 @@ function getUserInfo() {
 
         },
 
-        // 请求发送完成后
-        complete: function(xhr) {
-            // 形参是异步对象
+        // // 请求发送完成后
+        //这个共同的内容以及在 ajaxprefilter 里面添加 所以ajax不用再添加
+        // complete: function(xhr) {
+        //     // 形参是异步对象
 
-            if (xhr.responseJSON.status == 1 && res.responseJSON.massage == '身份认证失败！') {
-                // 说明token没有 或者是假的
-                // 删除本地token
-                location.removeItem('token');
-                // 跳转页面到login
-                location.href = '/login.html';
-            }
+        //     if (xhr.responseJSON.status == 1 && res.responseJSON.massage == '身份认证失败！') {
+        //         // 说明token没有 或者是假的
+        //         // 删除本地token
+        //         location.removeItem('token');
+        //         // 跳转页面到login
+        //         location.href = '/login.html';
+        //     }
 
-        }
+        // }
     })
 }

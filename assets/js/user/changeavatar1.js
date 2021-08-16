@@ -47,13 +47,11 @@ $(function() {
         console.log(dataURL);
         $.ajax({
             type: 'post',
-            url: 'http://www.liulongbin.top:3007/my/update/avatar',
+            url: '/my/update/avatar',
             data: {
                 avatar: dataURL
             },
-            headers: {
-                'Authorization': localStorage.getItem('token')
-            },
+
             success: function(res) {
                 // 弹出提示
                 layer.msg(res.message);
@@ -62,15 +60,8 @@ $(function() {
                     // 更换成功 调用父页面的方法 更新用户信息
                     window.parent.getUserInfo();
                 }
-            },
-            complete: function(xhr) {
-
-                if (xhr.responseJSON.status === 1 && xhr.responseJSON.message === '身份认证失败！') {
-                    localStorage.removeItem('token');
-                    // window表示当前窗口
-                    window.parent.location.href = '/login.html';
-                }
             }
+
         })
     })
 })

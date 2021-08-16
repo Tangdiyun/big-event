@@ -16,6 +16,9 @@
     <!-- 加载js是有顺序的， 剪裁插件的js是在jq的基础上完成的所以放进去后面 -->
     <script src="/assets/lib/cropper/Cropper.js"></script>
     <script src="/assets/lib/cropper/jquery-cropper.js"></script>
+    <!-- 加载共同的 js 里面的ajaxPrefilter 方法 修改ajax 的请求内容 把共同的的内容添加到这个方法里面 优化ajax请求
+    必须是在jq之后 自己的js之前 引入 -->
+    <script src="/assets/js/common1.js"></script>
     <!-- 自己的js-->
     <script src="/assets/js/user/changeavatar1.js"></script>
 </head>

@@ -30,7 +30,7 @@ $(function() {
 
         $.ajax({
             type: 'post',
-            url: 'http://www.liulongbin.top:3007/my/updatepwd',
+            url: '/my/updatepwd',
             data: $(this).serialize(), //一定要查看name属性
             success: function(res) {
                 // 给一个提示 弹出层
@@ -39,18 +39,6 @@ $(function() {
                 if (res.status === 0) {
                     // 把jq对象转dom对象调用reset方法
                     $('form')[0].reset();
-                }
-            },
-
-            headers: {
-                'Authorization': localStorage.getItem('token')
-            },
-            complete: function(xhr) {
-                console.log(xhr);
-                if (xhr.responseJSON.status === 1 && xhr.responseJSON.message === '身份认证失败！') {
-                    localStorage.removeItem('token');
-                    // window表示当前窗口
-                    window.parent.location.href = '/login.html';
                 }
             }
 
