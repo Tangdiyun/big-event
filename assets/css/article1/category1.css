@@ -1,0 +1,15 @@
+body {
+    background-color: #F7F7F7;
+}
+
+.layui-card {
+    margin: 20px;
+}
+
+.layui-card-header {
+    display: flex;
+    justify-content: space-between;
+    /* 盒子里面的内容两端对齐 */
+    align-items: center;
+    /* 垂直居中对齐 */
+}

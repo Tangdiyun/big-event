@@ -16,7 +16,7 @@ $(function() {
                 // 说明token没有 或者是假的
                 // 删除本地token
                 location.removeItem('token');
-                // 跳转页面到login
+                // 父级页面跳转到login
                 window.parent.location.href = '/login.html';
             }
 

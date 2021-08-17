@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章管理</title>
+    <!-- 加载layuicss -->
+    <link rel="stylesheet" href="/assets/lib/layui/css/layui.css">
+    <!-- 加载自己的css -->
+    <link rel="stylesheet" href="/assets/css/article1/category1.css">
+    <!-- 加载jq -->
+    <script src="/assets/lib/jquery.js"></script>
+    <script src="/assets/lib/layui/layui.all.js"></script>
+    <!-- 加载共同的 js 里面的ajaxPrefilter 方法 修改ajax 的请求内容 把共同的的内容添加到这个方法里面 优化ajax请求
+     必须是在jq之后 自己的js之前 引入 -->
+    <script src="/assets/js/common1.js"></script>
+    <!-- 引入模板引擎 -->
+    <script src="/assets/lib/template-web.js"></script>
+
+    <!-- 加载自己的js -->
+    <script src="/assets/js/article1/category1.js"></script>
+</head>
+
+<body>
+    <div class="layui-card">
+        <div class="layui-card-header">文章类别管理 <button type="button" class="layui-btn layui-btn layui-btn-normal layui-btn layui-btn-sm">类别添加</button></div>
+
+        <div class="layui-card-body">
+            <table class="layui-table">
+                <colgroup>
+                    <col width="40%">
+                    <col width="40%">
+                    <col>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>分类名称</th>
+                        <th>分类别名</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>贤心</td>
+                        <td>2016-11-29</td>
+                        <td>
+
+                            <button type="button" class="layui-btn layui-btn-xs">确认</button>
+                            <button type="button" class="layui-btn layui-btn-danger layui-btn-xs">修改</button>
+
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+    <!-- 模板引擎开始 -->
+    <script type="text/template" id="tpl-category">
+        {{ each data val}}
+        <tr>
+            <td>{{val.name}}</td>
+            <td>{{val.alias}}</td>
+            <td>
+
+                <button type="button" class="layui-btn layui-btn-xs">确认</button>
+                <button type="button" class="layui-btn layui-btn-danger layui-btn-xs">修改</button>
+
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+    <!-- 模板引擎结束 -->
+
+</body>
+
+</html>
