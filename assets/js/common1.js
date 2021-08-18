@@ -12,7 +12,7 @@ $(function() {
         option.complete = function(xhr) {
             // 形参是异步对象
 
-            if (xhr.responseJSON.status == 1 && res.responseJSON.massage == '身份认证失败！') {
+            if (xhr.responseJSON.status == 1 && xhr.responseJSON.massage == '身份认证失败！') {
                 // 说明token没有 或者是假的
                 // 删除本地token
                 location.removeItem('token');

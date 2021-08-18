@@ -65,8 +65,9 @@
             <td>{{val.name}}</td>
             <td>{{val.alias}}</td>
             <td>
-
-                <button type="button" class="layui-btn layui-btn-xs">修改</button>
+                <!-- 个人给他添加一个类edit  私有属性data-id data-name data-alias 要用来显示到表单-->
+                <button type="button" class="layui-btn layui-btn-xs edit" data-id={{val.Id}} data-name={{val.name}} data-alias={{val.alias}}>编辑</button>
+                <!-- 个人给他添加一个类delete -->
                 <button type="button" class="layui-btn layui-btn-danger layui-btn-xs delete" data-id={{val.Id}}>删除</button>
 
             </td>
@@ -75,6 +76,66 @@
     </script>
     <!-- 模板引擎结束 -->
 
+    <!-- add弹层 模板引擎 使用其它标签页可以 但是在html加载时会显示在页面 所以用script标签-->
+    <!-- 因为script标签都是在 入口函数中执行 所以这个标签跟form表单加载以后 不是父子关系 用行内样式style能修改
+    或者自己添加一个 类名 通过类名修改样式-->
+    <script type="text/html " id="tpl-add">
+        <!-- 给form添加一个自定义的类名 myform-add -->
+        <form class="layui-form myform-add" action="">
+            <div class="layui-form-item">
+                <label class="layui-form-label">类别名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="name" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">类别别名</label>
+                <div class="layui-input-block">
+                    <input type="text" name="alias" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="formDemo">确认添加</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+        </form>
+
+    </script>
+    <!-- add弹层模板引擎结束 -->
+
+
+
+    <!-- 编辑弹层模板引擎开始 -->
+    <script type="text/html " id="tpl-edit">
+        <!-- 给form添加一个自定义的类名 myform-edit -->
+        <form class="layui-form myform-edit" action="" lay-filter="edit-form">
+            <!-- 添加一个隐藏域 -->
+            <input type="hidden" name="id">
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">类别名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="name" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">类别别名</label>
+                <div class="layui-input-block">
+                    <input type="text" name="alias" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="formDemo">确认修改</button>
+
+                </div>
+            </div>
+        </form>
+
+    </script>
+    <!-- edit弹层模板引擎结束 -->
 </body>
 
 </html>
